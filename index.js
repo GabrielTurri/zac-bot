@@ -1,6 +1,6 @@
 // require the discord.js module
 const Discord = require('discord.js');
-
+const express = require(express);
 // create a new Discord client
 const client = new Discord.Client();
 
@@ -18,6 +18,10 @@ client.on('message', message => {
 	if (message.content === '!z ping') {
 		// send back "Pong." to the channel the message was sent in
 		message.channel.send('Pong.');
+	}
+	if (message.content === 'eae' | 'Eae') {
+		// send back "Pong." to the channel the message was sent in
+		message.channel.send('Eae beleza?');
 	}
 });
 

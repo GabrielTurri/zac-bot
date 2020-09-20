@@ -1,6 +1,5 @@
 // require the discord.js module
 const Discord = require('discord.js');
-const express = require(express);
 // create a new Discord client
 const client = new Discord.Client();
 

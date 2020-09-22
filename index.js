@@ -2,6 +2,7 @@
 const Commando = require('discord.js-commando');
 const path = require('path');
 // const sqlite = require('sqlite');
+const config = require(path.join(__dirname, 'config', 'config.json'));
 // create a new Discord and Commando client
 const client = new Commando.Client({
 	owner: '270249938003296258',
@@ -30,8 +31,8 @@ client.once('ready', () => {
 	console.log('Let\'s Bounce!');
 });
 
-// token
-client.login('token');
+// login
+client.login(config.token);
 
 // test command
 client.on('message', message => {

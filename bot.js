@@ -3,16 +3,21 @@ const Commando = require('discord.js-commando');
 const path = require('path');
 // const sqlite = require('sqlite');
 const config = require(path.join(__dirname, 'config', 'config.json'));
+// const search = require('youtube-search');
+
 // create a new Discord and Commando client
 const client = new Commando.Client({
 	owner: '270249938003296258',
+	commandPrefix: config.prefix,
 });
 
 client.registry
 // Registers your custom command groups
 	.registerGroups([
-		['fun', 'eae'],
-		['help', '!z help'],
+		['fun', 'fun commands'],
+		['help', 'help commands'],
+		['misc', 'misc commands'],
+		['mod', 'mod commands'],
 	])
 // Registers all buit-in groups, commands, and arguments types
 	.registerDefaults()
@@ -35,19 +40,10 @@ client.once('ready', () => {
 client.login(config.token);
 
 // test command
-client.on('message', message => {
-	if (message.content === '!z ping') {
-		// send back "Pong." to the channel the message was sent in
-		message.channel.send('Pong.');
-	}
+client.on('message', async message => {
 	if (message.content === 'eae' | 'Eae') {
 		// send back "Eae beleza?" to the channel the message was sent in
 		message.channel.send('Eae beleza?');
 	}
-	if (message.content === '!z help') {
-		// send back the available commands to the channel the message was sent in
-		message.channel.send('Comandos disponíveis: ```\neae \n!z help```');
-	}
-
 });
 
